@@ -41,7 +41,7 @@ let peliculas=[
         
     },
     {
-        nombre:"EL FANTASMA DE MARTYRS LANE (MARTYRS LANE)",
+        nombre:"EL FANTASMA DE MARTYRS LANE",
         genero:"Terror",
         duración:90,
         poster:"https://firebasestorage.googleapis.com/v0/b/cinemiercoles-cb507.appspot.com/o/fantasma.jpg?alt=media&token=c1eabb1c-bf10-4645-9498-a2e568c546dc",
@@ -80,7 +80,7 @@ let peliculas=[
         nombre:"Super mascotas",
         genero:"Animada",
         duración:105,
-        poster:"https://firebasestorage.googleapis.com/v0/b/cinemiercoles-cb507.appspot.com/o/jack.png?alt=media&token=aeeaa111-ceab-45e5-98cb-ab3053b93927",
+        poster:"https://firebasestorage.googleapis.com/v0/b/cinemiercoles-cb507.appspot.com/o/supermascotas.jpg?alt=media&token=a9c8194c-cf32-40eb-b7c0-6f93f198103d",
         sinopsis:"Krypto el Superperro y Superman son amigos inseparables que comparten los mismos superpoderes y luchan juntos contra el crimen en Metrópolis. Cuando Superman y el resto de la Liga de la Justicia son secuestrados, Krypto debe convencer a un variopinto grupo de un albergue Ace el sabueso, PB la cerdita barrigona, Merton la tortuga y Chip la ardilla de dominar sus nuevos poderes y ayudarlo a rescatar a los superhéroes.",
         clasificacion:"General",
         idioma:"Español" 
@@ -116,7 +116,8 @@ let peliculas=[
 ]
 
 //recorriendo un arreglo en JS
-
+let fila=document.getElementById("fila")
+//let nombre=document.getElementById("nombre")
 
 peliculas.forEach(function(pelicula){
    // console.log(pelicula)
@@ -127,6 +128,65 @@ console.log(pelicula.sinopsis)
 console.log(pelicula.poster)
 console.log(pelicula.clasificacion)
 console.log(pelicula.idioma)
+//traversing (crear etiquetas de html desde js)
+/*let poster=document.createElement("img")
+poster.src=pelicula.poster
 
+let nombrePelicula=document.createElement("h3")
+nombrePelicula.textContent=pelicula.nombre*/
+
+//1. creamos una columna para cada película
+let columna=document.createElement("div")
+    columna.classList.add("col")
+//2.Creamos una tarjeta para cada película
+let tarjeta=document.createElement("div")
+    tarjeta.classList.add("card","h-100")
+
+//3. creamos una foto para cada película
+let poster=document.createElement("img")
+    poster.classList.add("card-img-top")
+    poster.src=pelicula.poster
+
+//4.creamos el nombre de la película
+
+let nombre=document.createElement("h5")
+    nombre.classList.add("card-title","text-center")
+    nombre.textContent=pelicula.nombre
+
+//5. creamos el genero
+
+let genero=document.createElement("h6")
+    genero.classList.add("card-text")
+    genero.textContent="Genero: "+ pelicula.genero
+
+//6. creamos el idioma
+
+let idioma=document.createElement("h7")
+    idioma.classList.add("fw-bold")
+    idioma.textContent="Idioma: "+ pelicula.idioma
+
+//7. creamos la sinopsis
+
+let sinopsis=document.createElement("p")
+    sinopsis.classList.add("d-none")
+    sinopsis.textContent= "Sinopsis: "+ pelicula.sinopsis
+
+//Padres e hijos
+/*fila.appendChild(poster)
+fila.appendChild(nombrePelicula)*/
+    
+    tarjeta.appendChild(poster)
+    tarjeta.appendChild(nombre)
+    tarjeta.appendChild(genero)
+    tarjeta.appendChild(idioma)
+    tarjeta.appendChild(sinopsis)
+    columna.appendChild(tarjeta)
+    fila.appendChild(columna)
+})
+
+//detectando selección de una película
+
+fila.addEventListener("click",function(){
+    alert ("está seleccionando una película")
 })
 
