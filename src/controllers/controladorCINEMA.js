@@ -34,7 +34,6 @@ pintarPeliculas(peliculas)
 
 //detectando selección de una película
 let peliculaSeleccionada={
-
 }
 fila.addEventListener("click",function(e){
 

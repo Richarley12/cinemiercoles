@@ -13,9 +13,9 @@ export function pintarSillas(asientos,cinema){
             if (asiento.estado==0) {
                 fotoSilla.src="../../assets/img/cinema-chair.jpeg"
             }
-            /*else if(asiento.estado==2){
+            else if(asiento.estado==2){
                 fotoSilla.src="../../assets/img/cinema-red.jpeg"
-            }*/
+            }
             //foto silla
             columna.appendChild(fotoSilla)
             fila.appendChild(columna)
